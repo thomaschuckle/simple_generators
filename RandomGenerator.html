@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Random Number Generator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h2>
+            Simple Number Generators using AngularJS
+        </h2>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://vituanh.sgedu.site/Assignment1/index.html">Index</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://vituanh.sgedu.site/Assignment1/FactorialGenerator.html">Factorial Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://vituanh.sgedu.site/Assignment1/PrimeGenerator.html">Prime Number Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://vituanh.sgedu.site/Assignment1/RandomGenerator.html">Random Number Generator</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+
+            <div class="col-sm-10">
+                <h3>Random Number Generator</h3>  
+                
+                <p>Please enter the number of random integers you want to generate.</p>
+
+                <div ng-app="myApp" ng-controller="myCtrl">
+                    Number of random numbers: <input type="number" ng-model="number" ng-change="calculateFactorial()">
+                    <script>
+                        var app = angular.module('myApp', []);
+                        app.controller('myCtrl', function($scope) {
+                            $scope.calculateFactorial = function() {
+                                $scope.range1 = [];
+                                $scope.range2 = [];
+                                $scope.range3 = [];
+                                $scope.range4 = [];
+                                $scope.range5 = [];
+                                for (var i = 0; i < $scope.number; i++) {
+                                    $scope.random = Math.floor(Math.random()*50) + 1;
+                                    if ($scope.random >= 1 && $scope.random <= 10) {
+                                        $scope.range1.push($scope.random);
+                                    } else if ($scope.random >= 11 && $scope.random <= 20) {
+                                        $scope.range2.push($scope.random);
+                                    } else if ($scope.random >= 21 && $scope.random <= 30) {
+                                        $scope.range3.push($scope.random);
+                                    } else if ($scope.random >= 31 && $scope.random <= 40) {
+                                        $scope.range4.push($scope.random);
+                                    } else if ($scope.random >= 41 && $scope.random <= 50) {
+                                        $scope.range5.push($scope.random);
+                                    }
+                                }
+                                $scope.l1 = $scope.range1.length;
+                                $scope.l2 = $scope.range2.length;
+                                $scope.l3 = $scope.range3.length;
+                                $scope.l4 = $scope.range4.length;
+                                $scope.l5 = $scope.range5.length;
+                            }
+                        });
+                    </script>
+                    <p>Distribution of randomly generated {{ number }} numbers:
+                        <br><ul>
+                            <li>{{ l1 }} numbers are randomly generated in the range between 01-10</li>
+                            <li>{{ l2 }} numbers are randomly generated in the range between 11-20</li>
+                            <li>{{ l3 }} numbers are randomly generated in the range between 21-30</li>
+                            <li>{{ l4 }} numbers are randomly generated in the range between 31-40</li>
+                            <li>{{ l5 }} numbers are randomly generated in the range between 41-50</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>
+            Thomas Ha
+            <br>Email: ha000068@algonquinlive.com
+        </p>
+</body>
+
+</html>
