@@ -61,16 +61,31 @@
                         var app = angular.module('myApp', []);
                         app.controller('myCtrl', function($scope) {
                             $scope.isPrime = function() {
+                                let num = $scope.number;
+                                if (num <= 1) {
+                                    $scope.prime = false;
+                                    return;
+                                }
+                                if (num === 2) {
+                                    $scope.prime = true;
+                                    return;
+                                }
+                                if (num % 2 === 0) {
+                                    $scope.prime = false;
+                                    return;
+                                }
+                    
                                 $scope.prime = true;
-                                for (var i = 2; i < $scope.number; i++) {
-                                    if ($scope.number % i === 0) {
+                                let limit = Math.sqrt(num);
+                                for (let i = 3; i <= limit; i += 2) {
+                                    if (num % i === 0) {
                                         $scope.prime = false;
                                         break;
                                     }
                                 }
-                            }
+                            };
                         });
-                    </script>
+                    </script>                    
                     <p>{{ number }} is prime -> {{ prime }}</p>
                 </div>
             </div>
